@@ -4,10 +4,12 @@
     <Project Path="src\aspire\AspireHost\AspireHost.csproj" Type="Classic C#" />
     <Project Path="src\aspire\ServiceDefaults\ServiceDefaults.csproj" Type="Classic C#" />
   </Folder>
-  <Folder Name="/solution items/">
+  <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
     <File Path="tests.runsettings" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
   </Folder>
   <Project Path="src\SharedKernel\SharedKernel.csproj" Type="Classic C#" />
 </Solution>

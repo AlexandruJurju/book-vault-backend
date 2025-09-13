@@ -1,8 +1,15 @@
 ﻿<Solution>
-  <Folder Name="/aspire/">
-    <Project Path="src\aspire\AspireConstants\AspireConstants.csproj" Type="Classic C#" />
-    <Project Path="src\aspire\AspireHost\AspireHost.csproj" Type="Classic C#" />
-    <Project Path="src\aspire\ServiceDefaults\ServiceDefaults.csproj" Type="Classic C#" />
+  <Folder Name="/Aspire/">
+    <Project Path="src\Aspire\BookVault.AspireConstants\BookVault.AspireConstants.csproj" Type="Classic C#" />
+    <Project Path="src\Aspire\BookVault.AspireHost\BookVault.AspireHost.csproj" Type="Classic C#" />
+    <Project Path="src\Aspire\BookVault.ServiceDefaults\BookVault.ServiceDefaults.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/Services/" />
+  <Folder Name="/Services/Catalog/">
+    <Project Path="src\Services\Catalog\BookVault.Catalog.Api\BookVault.Catalog.Api.csproj" Type="Classic C#" />
+    <Project Path="src\Services\Catalog\BookVault.Catalog.Application\BookVault.Catalog.Application.csproj" Type="Classic C#" />
+    <Project Path="src\Services\Catalog\BookVault.Catalog.Domain\BookVault.Catalog.Domain.csproj" Type="Classic C#" />
+    <Project Path="src\Services\Catalog\BookVault.Catalog.Infrastructure\BookVault.Catalog.Infrastructure.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />

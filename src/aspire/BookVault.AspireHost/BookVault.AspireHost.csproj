@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>1863077e-ec90-46a3-87ac-67cdd8dd4b4c</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost"/>
+        <PackageReference Include="Aspire.Hosting.Keycloak"/>
+        <PackageReference Include="Aspire.Hosting.MongoDB"/>
+        <PackageReference Include="Aspire.Hosting.NodeJs"/>
+        <PackageReference Include="Aspire.Hosting.PostgreSQL"/>
+        <PackageReference Include="Aspire.Hosting.RabbitMQ"/>
+        <PackageReference Include="Aspire.Hosting.Redis"/>
+        <PackageReference Include="Aspire.Hosting.Seq"/>
+        <PackageReference Include="Aspire.Hosting.Yarp" />
+        <PackageReference Include="CommunityToolkit.Aspire.Hosting.MailPit"/>
+        <PackageReference Include="CommunityToolkit.Aspire.Hosting.PapercutSmtp"/>
+        <PackageReference Include="Scalar.Aspire"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Services\Catalog\BookVault.Catalog.Api\BookVault.Catalog.Api.csproj" />
+        <ProjectReference Include="..\BookVault.AspireConstants\BookVault.AspireConstants.csproj" IsAspireProjectResource="false" />
+    </ItemGroup>
+
+</Project>

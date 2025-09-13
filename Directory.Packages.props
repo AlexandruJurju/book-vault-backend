@@ -29,6 +29,7 @@
     <PackageVersion Include="Aspire.Hosting.Testing" Version="$(AspireVersion)" />
     <PackageVersion Include="Aspire.Hosting.Valkey" Version="$(AspireVersion)" />
     <PackageVersion Include="Aspire.Hosting.Garnet" Version="$(AspireVersion)" />
+    <PackageVersion Include="Aspire.Hosting.Yarp" Version="9.4.2-preview.1.25428.12" />
     <PackageVersion Include="Aspire.Keycloak.Authentication" Version="9.4.1-preview.1.25408.4" />
     <PackageVersion Include="Aspire.Seq" Version="$(AspireVersion)" />
     <PackageVersion Include="CommunityToolkit.Aspire.Hosting.MailPit" Version="$(ToolKitVersion)" />

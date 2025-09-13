@@ -1,0 +1,13 @@
+﻿<Solution>
+  <Folder Name="/aspire/">
+    <Project Path="src\aspire\AspireConstants\AspireConstants.csproj" Type="Classic C#" />
+    <Project Path="src\aspire\AspireHost\AspireHost.csproj" Type="Classic C#" />
+    <Project Path="src\aspire\ServiceDefaults\ServiceDefaults.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/solution items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="tests.runsettings" />
+  </Folder>
+  <Project Path="src\SharedKernel\SharedKernel.csproj" Type="Classic C#" />
+</Solution>

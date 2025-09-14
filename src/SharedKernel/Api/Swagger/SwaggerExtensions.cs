@@ -65,32 +65,32 @@ public static class SwaggerExtensions
             // });
 
             // ================== JWT Configuration ==================
-            var jwtSecurityScheme = new OpenApiSecurityScheme
-            {
-                Name = "JWT Authentication",
-                Description = "Enter your JWT token in this field",
-                In = ParameterLocation.Header,
-                Type = SecuritySchemeType.Http,
-                Scheme = JwtBearerDefaults.AuthenticationScheme,
-                BearerFormat = "JWT"
-            };
+            // var jwtSecurityScheme = new OpenApiSecurityScheme
+            // {
+            //     Name = "JWT Authentication",
+            //     Description = "Enter your JWT token in this field",
+            //     In = ParameterLocation.Header,
+            //     Type = SecuritySchemeType.Http,
+            //     Scheme = JwtBearerDefaults.AuthenticationScheme,
+            //     BearerFormat = "JWT"
+            // };
 
-            options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, jwtSecurityScheme);
+            // options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, jwtSecurityScheme);
 
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = JwtBearerDefaults.AuthenticationScheme
-                        }
-                    },
-                    []
-                }
-            });
+            // options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            // {
+            //     {
+            //         new OpenApiSecurityScheme
+            //         {
+            //             Reference = new OpenApiReference
+            //             {
+            //                 Type = ReferenceType.SecurityScheme,
+            //                 Id = JwtBearerDefaults.AuthenticationScheme
+            //             }
+            //         },
+            //         []
+            //     }
+            // });
         });
     }
 

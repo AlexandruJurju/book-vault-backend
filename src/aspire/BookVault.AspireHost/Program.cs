@@ -1,5 +1,6 @@
 using BookVault.AspireConstants;
 using Projects;
+using Scalar.Aspire;
 
 IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
@@ -14,8 +15,13 @@ IResourceBuilder<RedisResource> redis = builder
 
 IResourceBuilder<PostgresDatabaseResource> catalogPgDb = postgresServer.AddDatabase(Components.Databases.Catalog);
 
-builder.AddProject<BookVault_Catalog_Api>(Services.Catalog)
+IResourceBuilder<ProjectResource> catalogApi = builder.AddProject<BookVault_Catalog_Api>(Services.Catalog)
     .WithReference(catalogPgDb).WaitFor(catalogPgDb)
     .WithReference(redis).WaitFor(redis);
+
+// todo: doesn't work
+IResourceBuilder<ScalarResource> scalar = builder.AddScalarApiReference();
+scalar
+    .WithApiReference(catalogApi);
 
 await builder.Build().RunAsync();

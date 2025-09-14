@@ -1,5 +1,6 @@
 ﻿namespace BookVault.Catalog.Infrastructure;
 
-public class Class1
+public interface IInfrastructureAssemblyMarker
 {
+    
 }

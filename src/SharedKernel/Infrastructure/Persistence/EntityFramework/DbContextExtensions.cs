@@ -1,0 +1,58 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SharedKernel.Infrastructure.Configuration;
+using SharedKernel.Infrastructure.Persistence.Abstractions;
+using SharedKernel.Infrastructure.Persistence.Dapper;
+using SharedKernel.Infrastructure.Persistence.EntityFramework.Repository;
+
+namespace SharedKernel.Infrastructure.Persistence.EntityFramework;
+
+public static class DbContextExtensions
+{
+    public static void AddDefaultPostgresDb<TDbContext>(
+        this IHostApplicationBuilder builder,
+        string name,
+        Action<IHostApplicationBuilder>? action = null
+    )
+        where TDbContext : DbContext, IUnitOfWork
+    {
+        IServiceCollection services = builder.Services;
+
+        services.AddSingleton<IInterceptor, InsertOutboxMessagesInterceptor>();
+
+        services.AddDbContext<TDbContext>((sp, options) =>
+            {
+                options
+                    .UseNpgsql(builder.Configuration.GetConnectionString(name))
+                    .UseSnakeCaseNamingConvention()
+                    // Issue: https://github.com/dotnet/efcore/issues/35285
+                    .ConfigureWarnings(warnings =>
+                        warnings.Ignore(RelationalEventId.PendingModelChangesWarning)
+                    );
+
+                IInterceptor[] interceptors = sp.GetServices<IInterceptor>().ToArray();
+
+                if (interceptors.Length != 0)
+                {
+                    options.AddInterceptors(interceptors);
+                }
+            }
+        );
+
+        // hack - i register the generic TDbContext here but i use DbContext in EfRepository
+        services.AddScoped<DbContext>(provider => provider.GetRequiredService<TDbContext>());
+
+        services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<TDbContext>());
+
+        services.AddScoped(typeof(IRepository<>), typeof(GenericEfRepository<>));
+
+        services.AddSingleton<ISqlConnectionFactory>(_ =>
+            new SqlConnectionFactory(builder.Configuration.GetConnectionStringOrThrow(name))
+        );
+
+        action?.Invoke(builder);
+    }
+}

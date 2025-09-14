@@ -1,4 +1,5 @@
 ﻿using BookVault.AspireConstants;
+using BookVault.Catalog.Application.Contracts.Persistence;
 using BookVault.Catalog.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,17 +16,8 @@ public static class DependencyInjection
 
         builder.AddDefaultPostgresDb<CatalogDbContext>(
             Components.Databases.Catalog,
-            hostBuilder =>
-            {
-                if (hostBuilder.Environment.IsDevelopment())
-                {
-                    services.AddMigration<CatalogDbContext, CatalogDbContextSeeder>();
-                }
-                else
-                {
-                    services.AddMigration<CatalogDbContext>();
-                }
-            }
-        );
+            _ => services.AddMigration<CatalogDbContext>());
+
+        services.AddScoped<ICatalogDbContext>(sp => sp.GetRequiredService<CatalogDbContext>());
     }
 }

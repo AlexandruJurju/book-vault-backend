@@ -20,8 +20,4 @@
         <ProjectReference Include="..\BookVault.Catalog.Application\BookVault.Catalog.Application.csproj"/>
         <ProjectReference Include="..\BookVault.Catalog.Infrastructure\BookVault.Catalog.Infrastructure.csproj"/>
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Endpoints\Books\List\" />
-    </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@ public sealed class Book : AuditableEntity, ISoftDeletable
         return book;
     }
 
-    public string Name { get; set; } = null!;
-    public string Description { get; set; } = null!;
+    public string Name { get; private set; } = null!;
+    public string Description { get; private set; } = null!;
     public bool IsDeleted { get; set; }
 }

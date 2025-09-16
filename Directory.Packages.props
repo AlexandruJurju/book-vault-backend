@@ -46,6 +46,7 @@
     <PackageVersion Include="FluentEmail.Smtp" Version="$(FluentEmailVersion)" />
     <PackageVersion Include="FluentValidation" Version="12.0.0" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageVersion Include="Humanizer.Core" Version="2.14.1" />
     <PackageVersion Include="Keycloak.Net.Core" Version="1.0.34" />
     <PackageVersion Include="MassTransit" Version="$(MassTransitVersion)" />
     <PackageVersion Include="MassTransit.RabbitMQ" Version="$(MassTransitVersion)" />

@@ -8,9 +8,5 @@
     <ItemGroup>
       <ProjectReference Include="..\BookVault.Catalog.Domain\BookVault.Catalog.Domain.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Features\Books\Queries\" />
-    </ItemGroup>
     
 </Project>

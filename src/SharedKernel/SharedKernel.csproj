@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
+        <PackageReference Include="Ardalis.GuardClauses" />
         <PackageReference Include="Ardalis.Result.AspNetCore"/>
         <PackageReference Include="Ardalis.Result.FluentValidation"/>
         <PackageReference Include="Ardalis.SmartEnum" />
@@ -9,6 +10,7 @@
         <PackageReference Include="Dapper"/>
         <PackageReference Include="EFCore.NamingConventions"/>
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions"/>
+        <PackageReference Include="Humanizer.Core" />
         <PackageReference Include="MassTransit"/>
         <PackageReference Include="MassTransit.RabbitMQ"/>
         <PackageReference Include="MediatR"/>

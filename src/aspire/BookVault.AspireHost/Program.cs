@@ -20,8 +20,9 @@ IResourceBuilder<ProjectResource> catalogApi = builder.AddProject<BookVault_Cata
     .WithReference(redis).WaitFor(redis);
 
 // todo: doesn't work
-IResourceBuilder<ScalarResource> scalar = builder.AddScalarApiReference();
-scalar
-    .WithApiReference(catalogApi);
+builder.AddScalarApiReference(options => options
+        .PreferHttpsEndpoint()
+        .AllowSelfSignedCertificates())
+    .WithApiReference(catalogApi, options => options.WithOpenApiRoutePattern("/openapi/v1.json"));
 
 await builder.Build().RunAsync();
